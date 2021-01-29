@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class conta {
+	
+	public static void main(String[] args) {
+		
+		Scanner ler = new Scanner(System.in);
+		
+		double saldo = 0.00;
+		double operacao;
+		
+		System.out.println("Bem vindo a sua conta poupança.");
+		System.out.println("Qual o movimento? \nDebitar - 1\nCreditar - 2");
+		operacao = ler.nextDouble();
+		
+		if (operacao = 1)
+		{
+			System.out.println("Quanto deseja creditar de sua conta poupança? ");
+			saldo = ler.nextDouble() *-1;
+		}
+		else (operacao = 2)
+		{
+			System.out.println("Quanto deseja debitarr de sua conta poupança? ");
+		}
+		
+		
+		
+		saldo = saldo + (saldo*0.005);
+		
+	
+		
+		
+		
+		
+		
+		
+		System.out.println("Fim de programa!!!");
+	}
+	
+	
+	
+}

@@ -1,0 +1,29 @@
+package conteudo;
+
+import javax.swing.*;
+
+public class Exercicio3 {
+
+	public static void main (String args []){  
+        double resultado;   
+        double alturainf;  
+        int idadeinf;  
+        char sexoinf;  
+          
+        for(int i = 0; i < 2; i++){           
+             String altura = JOptionPane.showInputDialog ((i+1)+"º Pessoa - Digite a altura");  
+             alturainf = Double.parseDouble(altura);  
+                       
+             String idade = JOptionPane.showInputDialog((i+1)+"º Pessoa - Digite a idade");   
+             idadeinf = Integer.parseInt(idade);  
+               
+             String sexo = JOptionPane.showInputDialog((i+1)+"º Pessoa - Digite o sexo");   
+             sexoinf = sexo.charAt(0);  
+               
+    }          
+	
+	
+	}
+	
+	
+}

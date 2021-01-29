@@ -1,0 +1,23 @@
+package conteudo;
+
+public class tarefa1 {
+
+	public static void main(String[] args) {
+		
+		int x, soma=0;
+		
+		for(x=1000;x<=1999;x++);
+		{
+			System.out.println("%d", x);
+		}
+		System.out.println("Soma total: %d",soma);
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+}

@@ -1,0 +1,39 @@
+package trabalhos;
+
+import java.util.Scanner;
+
+public class Exercicio1 {
+
+	public static void main(String[] args) {
+		
+		Scanner ler = new Scanner(System.in);
+		
+		int number1;
+		int number2;
+		int number3;
+		
+		int soma;
+        int local;
+		int numero3 = 0;
+		
+		System.out.print("Digite o primeiro número:   \n");
+		number1 = ler.nextInt();
+		
+		System.out.print("Digite o segundo número:    \n");
+		number2 = ler.nextInt();
+		
+		System.out.print("Digite o terceiro número:   \n");
+		number3 = ler.nextInt();
+		
+       if (number1 > number2)
+    	   local = number1;
+       else
+    	   local = number2;
+       
+       if(local > number3)
+    	   System.out.printf("O número maior é: %d", number3);
+		
+		
+	}
+
+}

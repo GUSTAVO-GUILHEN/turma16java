@@ -1,0 +1,48 @@
+package trabalhos;
+
+import java.util.Scanner;
+
+public class Exercicio2 {
+
+	public static void main(String[] args) {
+
+				/*
+				 * 6) Elabore um sistema que dada a idade de um nadador 
+				 * classifique-o em uma das seguintes categorias:
+				 * Infantil A = 5 a 7 anos
+				 * Infantil B = 8 a 11 anos
+		         * Juvenil A = 12 a 13 anos
+				 * Juvenil B = 14 a 17 anos
+		         * Adultos = Maiores de 18 anos
+				 */
+				
+				Scanner ler = new Scanner (System.in);
+				
+				int idade;
+				
+				System.out.print("Insira a idade do nadador:\n");
+				idade= ler.nextInt();
+				
+				if(idade>= 10 && idade<=14)
+				{
+					System.out.print("Infantil");
+				}
+				else if(idade>= 15 && idade<=17)
+				{
+					System.out.print("Juvenil");
+				}
+				else if(idade>= 18) 
+				{
+					System.out.print("Adulto");
+				}
+				else
+				{
+					System.out.print("Idade inválida!");
+				}
+				
+			}
+
+		
+	}
+
+
