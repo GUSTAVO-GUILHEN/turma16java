@@ -1,10 +1,8 @@
 package DesafiosGerais;
 
-import java.util.*;
+import java.util.Scanner;
 
-import java.math.*;
-
-public class DesafioE2 {
+public class TestandoEcommerce {
 
 	public static void main(String[] args) {
 		Scanner ler = new Scanner(System.in);
@@ -46,7 +44,7 @@ public class DesafioE2 {
 				linha(90);
 				imprimeLista(n,codigoProdutos,nomeProdutos,estoque,precoProdutos);
 				linha(90);
-				System.out.print("\nCOMANDOS:\na = Adicionar produto ao carrinho\nr = Retirar produto do carrinho\nc = Exibir o carrinho de compras\nf = Finalizar compra\ns = Sair\n");
+				System.out.print("\nCOMANDOS:\na = Adicionar produto ao carrinho\nf = Finalizar compra\ns = Sair\n");
 				System.out.print("\nDigite o que deseja: ");
 				comando = ler.next().toLowerCase().charAt(0);
 				if (comando == 'a') {
@@ -116,15 +114,6 @@ public class DesafioE2 {
 					{
 						System.out.print("\n\n\n---CÓDIGO DO PRODUTO NÃO ENCONTRADO---\n");
 					}
-				} else if(comando == 'c')
-				{
-					System.out.print("\n\n|\tCOD\t|\tPreço\t|   Seu Carrinho   |\tProduto Restante\t\n");
-					for(int i=0;i<10;i++)
-					{
-						if(carrinhoCompras[i] != 0){
-							System.out.print("|\t"+(i+1)+"\t|\t"+precoProdutos[i]+"\t|\t"+carrinhoCompras[i]+"\t|\t"+estoque[i]+"\n");
-						}
-					}
 				}
 						else if(comando == 's')
 						{
@@ -132,12 +121,8 @@ public class DesafioE2 {
 						}
 						else if(comando == 'f')
 						{
-							boolean result = pagamento( estoque,carrinhoCompras,  precoProdutos, nome, sexo);
-							if (result) break;
-							else {
-								linha(90);
-								System.out.println("\n**NÃO FOI POSSÍVEL FINALIZAR A COMPRA, POIS O CARRINHO ESTA VAZIO**\n");
-							}
+							pagamento( estoque,carrinhoCompras,  precoProdutos, nome, sexo);
+							break;
 						}
 					}
 					while (true);
@@ -191,7 +176,7 @@ public class DesafioE2 {
 			carrinhoCompras[indice] = carrinhoCompras[indice]-qtdProduto;
 			return true;
 		}
-		static boolean pagamento( int []estoque, int []carrinhoCompras, double [] precoProdutos, String nome, char sexo)
+		static void pagamento( int []estoque, int []carrinhoCompras, double [] precoProdutos, String nome, char sexo)
 			{
 				Scanner leia = new Scanner(System.in);
 				String formaPagamento,tratamento = "a";
@@ -212,11 +197,8 @@ public class DesafioE2 {
 				{
 					if(carrinhoCompras[i] != 0){
 					System.out.print("|\t"+(i+1)+"\t|\t"+precoProdutos[i]+"\t|\t"+carrinhoCompras[i]+"\t|\t"+estoque[i]+"\n");
-					totalGeral = carrinhoCompras[i]*precoProdutos[i];
+					totalGeral += carrinhoCompras[i]*precoProdutos[i];
 					}
-				}
-				if (totalGeral == 0) { //se o totalGeral é zero, o carrinho está vazio, então retorna falso
-					return false;
 				}
 				totalComImposto = totalGeral+(totalGeral*0.09);
 				System.out.printf("\nTotal Geral: R$ %.2f + IMPOSTO (9%%): R$ %.2f  Total com imposto: R$ %.2f \n",totalGeral,totalGeral*0.09,totalComImposto);
@@ -224,8 +206,8 @@ public class DesafioE2 {
 				System.out.print("\n1- ZERAR CARRINHO");
 				System.out.printf("\n2- A VISTA - 10%% DESCONTO: R$%.2f",(totalComImposto*0.9));	
 				System.out.printf("\n3- CARTÃO - 1 VEZ:  R$%.2f SEM DESCONTO", totalComImposto);
-				System.out.printf("\n4- CARTÃO - 2 VEZES - JUROS (10%%) - PARCELAS DE:  R$%.2f - TOTAL DE: R$%.2f",((totalComImposto+(totalComImposto*0.10))/2),(totalComImposto*1.10));
-				System.out.printf("\n5- CARTÃO - 3 VEZES - JUROS (15%%) - PARCELAS DE:  R$%.2f - TOTAL DE: R$%.2f",((totalComImposto+(totalComImposto*0.15))/3),(totalComImposto*1.15));
+				System.out.printf("\n4- CARTÃO - 2 VEZES - JUROS (10%%) - PARCELAS DE:  R$%.2f - TOTAL DE: R$%.2f",((totalGeral+(totalGeral*0.10))/2),(totalComImposto*1.10));
+				System.out.printf("\n5- CARTÃO - 3 VEZES - JUROS (15%%) - PARCELAS DE:  R$%.2f - TOTAL DE: R$%.2f",((totalGeral+(totalGeral*0.15))/3),(totalComImposto*1.15));
 				System.out.print("\n\nInsira Aqui: ");
 				opcao = leia.nextInt();
 				linha(80);
@@ -245,9 +227,11 @@ public class DesafioE2 {
 					{
 						if(carrinhoCompras[i] != 0){
 						System.out.print("|\t"+(i+1)+"\t|\t"+precoProdutos[i]+"\t|\t"+carrinhoCompras[i]+"\t|\t"+estoque[i]+"\n");
+						totalGeral = (carrinhoCompras[i]*precoProdutos[i])*0.9;
+						totalComImposto = totalGeral+(totalGeral*0.09);
 						}
 					}
-					System.out.printf("\nTotal a pagar: À vista c/ 10%% DESCONTO: R$%.2f\\n",totalComImposto*0.9);
+					System.out.printf("\nTotal Geral: R$ %.2f + IMPOSTO (9%%): R$ %.2f  Total com imposto: R$ %.2f \n",totalGeral,totalGeral*0.09,totalComImposto);
 				}
 				else if(opcao == 3){
 					formaPagamento = "1 VEZ NO CARTÃO";
@@ -257,9 +241,11 @@ public class DesafioE2 {
 					{
 						if(carrinhoCompras[i] != 0){
 						System.out.print("|\t"+(i+1)+"\t|\t"+precoProdutos[i]+"\t|\t"+carrinhoCompras[i]+"\t|\t"+estoque[i]+"\n");
+						totalGeral = carrinhoCompras[i]*precoProdutos[i];
+						totalComImposto = totalGeral+(totalGeral*0.09);
 						}
 					}
-					System.out.printf("\nTotal a pagar: 1 vez no cartão s/ Desconto: R$%.2f\n",totalComImposto);
+					System.out.printf("\nTotal Geral: R$ %.2f + IMPOSTO (9%%): R$ %.2f  Total com imposto: R$ %.2f \n",totalGeral,totalGeral*0.09,totalComImposto);
 				}
 				else if(opcao == 4){
 					formaPagamento = "2 VEZES NO CARTÃO";
@@ -269,9 +255,11 @@ public class DesafioE2 {
 					{
 						if(carrinhoCompras[i] != 0){
 						System.out.print("|\t"+(i+1)+"\t|\t"+precoProdutos[i]+"\t|\t"+carrinhoCompras[i]+"\t|\t"+estoque[i]+"\n");
+						totalGeral = (carrinhoCompras[i]*precoProdutos[i])*1.1;
+						totalComImposto = totalGeral+(totalGeral*0.09);
 						}
 					}
-					System.out.printf("\nTotal a pagar: 2 VEZES + JUROS (10%%) - PARCELAS DE:  R$%.2f - TOTAL DE: R$%.2f \n",((totalComImposto+(totalComImposto*0.10))/2),(totalComImposto*1.10));
+					System.out.printf("\nTotal Geral: R$ %.2f + IMPOSTO (9%%): R$ %.2f  Total com imposto: R$ %.2f \n",totalGeral,totalGeral*0.09,totalComImposto);
 				}
 				else if(opcao == 5){
 					formaPagamento = "3 VEZES NO CARTÃO";
@@ -281,13 +269,14 @@ public class DesafioE2 {
 					{
 						if(carrinhoCompras[i] != 0){
 						System.out.print("|\t"+(i+1)+"\t|\t"+precoProdutos[i]+"\t|\t"+carrinhoCompras[i]+"\t|\t"+estoque[i]+"\n");
+						totalGeral = (carrinhoCompras[i]*precoProdutos[i])*1.15;
+						totalComImposto = totalGeral+(totalGeral*0.09);
 						}
 					}
-					System.out.printf("\nTotal a pagar: 3 VEZES + JUROS (15%%) - PARCELAS DE: R$%.2f - TOTAL DE: R$%.2f \n",((totalComImposto+(totalComImposto*0.15))/3),(totalComImposto*1.15));
+					System.out.printf("\nTotal Geral: R$ %.2f + IMPOSTO (9%%): R$ %.2f  Total com imposto: R$ %.2f \n",totalGeral,totalGeral*0.09,totalComImposto);
 				}else{
 					System.out.print("\nOpção inválida!\nTente novamente");
 				}
 				System.out.println("Agrademos pela compra. Volte sempre !");
-				return true;
 			}
-		}
+}
