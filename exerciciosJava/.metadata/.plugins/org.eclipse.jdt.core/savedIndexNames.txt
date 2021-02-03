@@ -5,6 +5,9 @@ INDEX VERSION 1.131+C:\Users\Gustavo G\Desktop\turma16java\exerciciosJava\.metad
 2095413144.index
 525387682.index
 169551256.index
-256354665.index
+221254878.index
+469144637.index
 3800162875.index
+3358211810.index
+1952183666.index
 2539055023.index

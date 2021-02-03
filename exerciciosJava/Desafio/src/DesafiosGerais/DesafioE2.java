@@ -247,7 +247,7 @@ public class DesafioE2 {
 						System.out.print("|\t"+(i+1)+"\t|\t"+precoProdutos[i]+"\t|\t"+carrinhoCompras[i]+"\t|\t"+estoque[i]+"\n");
 						}
 					}
-					System.out.printf("\nTotal a pagar: À vista c/ 10%% DESCONTO: R$%.2f\\n",totalComImposto*0.9);
+					System.out.printf("\nTotal a pagar: À vista c/ 10%% DESCONTO: R$%.2f \n",totalComImposto*0.9);
 				}
 				else if(opcao == 3){
 					formaPagamento = "1 VEZ NO CARTÃO";
@@ -287,7 +287,7 @@ public class DesafioE2 {
 				}else{
 					System.out.print("\nOpção inválida!\nTente novamente");
 				}
-				System.out.println("Agrademos pela compra. Volte sempre !");
+				System.out.println("Agradecemos pela compra. Volte sempre !");
 				return true;
 			}
 		}
