@@ -14,8 +14,59 @@ String raca;
 		System.out.println("O cachorro está latindo");
 	}
 	
-	
+	public String getRaca()
+	{
+		
+	}
 
+	
+	
+	public double getTamanho()
+	{
+		return tamanho;
+	}
+	
+	
+	public void setTamanho(double tamanho) 
+	{
+		this.tamanho = tamanho;
+	}
+	
+	
+	
+	
+	
+	
+	
+	String movimentacao() {
+		return null;
+	}
+	
+	double kmHora()
+	{
+		return 0;		
+	}
+	
+	public String necessidadesFisiologicas()
+	{
+		return null;
+	}
+	
+	public String comoSeAlimentar()
+	{
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 
