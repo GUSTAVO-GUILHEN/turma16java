@@ -6,21 +6,26 @@ public class Empregado {
 	private int matricula;
 	private int horas;
 	private double valorHora;
-	//CONSTRUTOR
+	
 	public Empregado(String nome, int matricula) {
 		super();
 		this.nome = nome;
 		this.matricula = matricula;
 	}
-	//SOBRECARGA DO CONSTRUTOR
-	public Empregado(String nome, int matricula, int horas, double valorHora) {
+	public Empregado(String nome, int matricula, int horas, double valorHora)
+	{
 		super();
 		this.nome = nome;
 		this.matricula = matricula;
 		this.horas = horas;
 		this.valorHora = valorHora;
 	}
-	//ENCAPSULAMENTO
+	
+	
+	public Empregado(int horas, double valorHora) {
+		this.horas = horas;
+		this.valorHora = valorHora;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -39,16 +44,24 @@ public class Empregado {
 	public void setHoras(int horas) {
 		this.horas = horas;
 	}
-	public double getValorHora() {
+	public double getHora() {
 		return valorHora;
 	}
-	public void setValorHora(double valorHora) {
+	public void setHora(double valorHora) {
 		this.valorHora = valorHora;
+	
 	}
 	
-	public double salario() {
-		return horas*valorHora;
+	public double Salario(double valorHora)
+	{
+		double Salario;
+		Salario = (getHoras() * valorHora);
+		
+		return Salario;
 	}
+	
+	
+	
+	
 }
-	
 

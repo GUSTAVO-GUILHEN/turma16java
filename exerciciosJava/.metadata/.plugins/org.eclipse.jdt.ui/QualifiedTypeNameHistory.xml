@@ -15,8 +15,10 @@
     <fullyQualifiedTypeName name="exercicio7.ClassePaciente"/>
     <fullyQualifiedTypeName name="Exercicios.Operarios"/>
     <fullyQualifiedTypeName name="java.util.Locale"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="Hierarquia.Cachorro"/>
     <fullyQualifiedTypeName name="Hierarquia.Cavalo"/>
     <fullyQualifiedTypeName name="Hierarquia.Preguica"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>

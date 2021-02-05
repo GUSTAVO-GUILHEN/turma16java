@@ -2,27 +2,28 @@ package Exercicios;
 
 public class Terceiro extends Empregado {
 	private double acrescimo;
-
-	public Terceiro(String nome, int matricula, int horas, double valorHora, double acrescimo) 
+	public Terceiro(int horas, double valorHora, double acrescimo)
 	{
-		super(nome, matricula, horas, valorHora);
+		
+		super(horas,valorHora);
 		this.acrescimo = acrescimo;
 	}
-
-	public double getAcrescimo() {
+	public double getAcrescimo()
+	{
 		return acrescimo;
 	}
-
 	public void setAcrescimo(double acrescimo) {
 		this.acrescimo = acrescimo;
 	}
 	
 	@Override
-	public double salario() {
-		return super.salario()*(acrescimo/100+1.0);
+	public double Salario(double valorHora)
+	{
+		double Salario;
+		acrescimo= acrescimo/100;
+		Salario = (getHoras() * (super.getHora() + (super.getHora()*acrescimo)));
+		
+		return Salario;
 	}
-	
-
-	
 	
 }

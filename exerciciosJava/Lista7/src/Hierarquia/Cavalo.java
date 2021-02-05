@@ -1,20 +1,16 @@
 package Hierarquia;
 
-public class Cavalo extends Animal {
+public class Cavalo extends Animal{
 
-	
-	public Cavalo(String nome, int idade) 
-	{
+	public Cavalo(String nome, int idade) {
 		super(nome, idade);
+		// TODO Auto-generated constructor stub
 	}
 
-	public void correr()
+	public String somCavalo()
 	{
-		System.out.println("Cavalo correndo...");
+		return "relinchar";
 	}
-	
-	public void emitirSom()
-	{
-		System.out.println("IRRRIINN");
-	}
+
+
 }

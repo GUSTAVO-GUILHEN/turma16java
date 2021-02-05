@@ -5,34 +5,61 @@ import java.util.Scanner;
 
 public class CadFun {
 	
-	public static void main(String[] args) {
-		Scanner ler = new Scanner(System.in);
+public static void main(String[] args) {
 		
-		System.out.println("Informe sua matrícula: ");
-		int matricula = ler.nextInt();
-		System.out.println("Informe seu nome: ");
-		String nome = ler.next();
-		System.out.println("Quantas horas de trabalho: ");
-		int horas = ler.nextInt();
-		System.out.println("Qual é o valor da hora trabalhada: ");
-		double valorHora = ler.nextDouble();
-		System.out.println("Você é terceiro: [S/N]");
-		char opcao = ler.next().toUpperCase().charAt(0);
-				
-			if(opcao == 'S') {
-				System.out.println("Qual é a porcentagem do acrescimo?");
-				double acrescimo = ler.nextDouble();
-				Empregado info = new Terceiro(nome, matricula, horas, valorHora, acrescimo);
-				info.salario();
-				System.out.printf("Olá %s, você é tercerizado, sua matrícula é %d , você trabalhou %d horas então seu salário é %.2f",info.getNome(),info.getMatricula(),info.getHoras(),info.salario() );
-			}
-			else if (opcao == 'N') {
-				Empregado info = new Empregado(nome, matricula, horas, valorHora);
-				info.salario();
-				System.out.printf("Olá %s, sua matrícula é %d , você trabalhou %d horas então seu salário é %.2f",info.getNome(),info.getMatricula(),info.getHoras(),info.salario());
-			}
+		
+		Scanner leia = new Scanner(System.in);
+		int matricula,horas;
+		int matricula2,horas2;
+		String nome,nome2;
+		double valorHora,valorHora2;
+		double acrescimo;
+		char decisao;
+		
+		System.out.println("Olá voce é Terceirizado? (S/N)");
+		decisao = leia.nextLine().toUpperCase().charAt(0);
+		while( decisao != 'S' && decisao !='N')
+		{
+			System.out.println("Digitou errado!!");
+			System.out.println("Olá voce é Terceirizado? (S/N)");
+			decisao = leia.nextLine().toUpperCase().charAt(0);
+		}
+		
+		if (decisao == 'N')
+		{
+			System.out.println("Olá Empregado!!");
+			System.out.println("Digite sua matricula: ");
+			matricula = leia.nextInt();
+			leia.nextLine();
+			System.out.println("Digite seu nome: ");
+			nome = leia.nextLine();
+			System.out.println("Digite as horas que trabalhou ");
+			horas = leia.nextInt();
+			System.out.println("Digite o valor por hora");
+			valorHora = leia.nextDouble();
+			Empregado cliente1 = new Empregado(nome,matricula,horas,valorHora );
+			System.out.println("O salario do primeiro Empregado é " + cliente1.Salario(cliente1.getHoras()));
+		}
+		
+		else if(decisao == 'S')
+		{
 			
 		
+			System.out.println("Olá Empregado numero 2!!");
+			System.out.println("Digite sua matricula: ");
+			matricula2 = leia.nextInt();
+			leia.nextLine();
+			System.out.println("Digite seu nome: ");
+			nome2 = leia.nextLine();
+			System.out.println("Digite as horas que trabalhou ");
+			horas2 = leia.nextInt();
+			System.out.println("Digite o valor por hora");
+			valorHora2 = leia.nextDouble();
+			System.out.println("Digite o acrescimo do valor por fora");
+			acrescimo = leia.nextDouble();
+			Terceiro cliente2 = new Terceiro(horas2,valorHora2,acrescimo);
+			System.out.println("O salario do terceirizado é " + cliente2.Salario(cliente2.getHoras()));
 		
+		}	
 	}
 }

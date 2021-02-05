@@ -1,21 +1,17 @@
 package Hierarquia;
 
-public class Preguica extends Animal {
+public class Preguica extends Animal{
 
-
-	public Preguica(String nome, int idade) 
-	{
+	
+	public Preguica(String nome, int idade) {
 		super(nome, idade);
+		
 	}
-	
-	
-	public void subirArvore()
-	{
-		System.out.println("Preguica subindo em arvores...");
+	public String arvore() {
+		return "Subir em árvores";
 	}
-	
-	public void emitirSom()
-	{
-		System.out.println("AAAAAAHHHHZZZZ");
+	public String somPreguica() {
+		return "Bocejar";
 	}
+
 }

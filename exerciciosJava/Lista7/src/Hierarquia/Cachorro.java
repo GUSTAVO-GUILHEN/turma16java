@@ -1,21 +1,14 @@
 package Hierarquia;
 
 public class Cachorro extends Animal {
-	
-	
-	public Cachorro(String nome, int idade) 
-	{
-		super(nome, idade);
+		
+		//CONSTRUTOR
+		public Cachorro(String nome, int idade) {
+				super(nome, idade);
+			}
+		
+		public String som() {
+			return "Latir";
+		}
+		
 	}
-	
-	
-	public void correr()
-	{
-		System.out.println("Cachorro correndo...");
-	}
-	
-	public void emitirSom()
-	{
-		System.out.println("AU AU AU!");
-	}
-}
