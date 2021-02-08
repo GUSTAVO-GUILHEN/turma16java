@@ -14,7 +14,7 @@ String raca;
 		System.out.println("O cachorro está latindo");
 	}
 	
-	public String getRaca()
+	public void getRaca()
 	{
 		
 	}
