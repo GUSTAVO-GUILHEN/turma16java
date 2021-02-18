@@ -8,7 +8,7 @@ public class Conta
 	private double saldo;
 	
 	
-	public Conta(String numero, String cpf) {
+	public Conta(String numero, String cpf, double saldo) {
 
 		this.numero = numero;
 		this.cpf = cpf;	
